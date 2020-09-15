@@ -14,7 +14,7 @@ import BERTClassifier
 
 
 #Choices are BERT or DistilBERT
-model_to_use = 'DistilBERT'
+model_to_use = 'BERT'
 
 #Loading test and train data
 train_path = 'train.csv'
@@ -83,7 +83,7 @@ if model_to_use == 'DistilBERT':
     model.train(epochs,train_loader,device)
     
 else:
-    model = BERTClassifier.DistilBertClassifier()
+    model = BERTClassifier.BertClassifier()
     #Detaching all BERT gradients
     for param in model.bert.parameters():
         param.requires_grad = False

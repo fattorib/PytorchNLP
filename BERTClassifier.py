@@ -14,7 +14,7 @@ class BertClassifier(nn.Module):
                     
     def forward(self, input_ids, attention_mask):
         
-        outputs = self.dstl(input_ids, attention_mask=attention_mask)
+        outputs = self.bert(input_ids, attention_mask=attention_mask)
         outputs = outputs[0]
         outputs = outputs[:, 0]
         outputs = F.relu(self.preclass(outputs))
